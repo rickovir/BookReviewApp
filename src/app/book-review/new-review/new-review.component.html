@@ -12,6 +12,7 @@
                         placeholder="Email"
                         #reviewEmail="ngModel" 
                         required 
+                        email
                         [class.is-invalid]="reviewEmail.errors?.required">
                 <div class="invalid-feedback" *ngIf="reviewEmail.errors?.required">
                   Required
