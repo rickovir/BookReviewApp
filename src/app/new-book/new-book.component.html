@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-header">
+      New Book
+    </div>
+    <div class="card-body">
+        <form #addBookForm="ngForm">
+            <div class="form-group row mb-3">
+              <label class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control is-invalid" [(ngModel)]="book.name" name="bookName" #bookName="ngModel" required [class.is-invalid]="bookName.errors?.required">
+                <div class="invalid-feedback" *ngIf="bookName.errors?.required">
+                  Required
+                </div>
+              </div>
+            </div>
+            <div class="form-group row mb-3">
+              <label class="col-sm-2 col-form-label">Year</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control is-invalid" [(ngModel)]="book.year" name="bookYear" #bookYear="ngModel" required [class.is-invalid]="bookYear.errors?.required">
+                <div class="invalid-feedback" *ngIf="bookYear.errors?.required">
+                  Required
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <button class="btn btn-primary" type="submit" (click)="submit()" [disabled]="addBookForm?.invalid">Submit Book</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

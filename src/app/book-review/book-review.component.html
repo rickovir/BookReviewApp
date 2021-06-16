@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="col-lg-6">
+        <review-list [bookName]="bookName" [data]="reviewList"></review-list>
+    </div>
+    <div class="col-lg-6">
+        <new-review (onAddReview)="addReviewHandler($event)"></new-review>
+    </div>
+</div>

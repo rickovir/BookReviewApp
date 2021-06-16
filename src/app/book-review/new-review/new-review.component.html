@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="card-header">
+      New Review
+    </div>
+    <div class="card-body">
+        <form #reviewBookForm="ngForm">
+            <div class="form-group mb-3">
+                <input type="email" 
+                        class="form-control" 
+                        [(ngModel)]="newReview.email" 
+                        name="reviewEmail" 
+                        placeholder="Email"
+                        #reviewEmail="ngModel" 
+                        required 
+                        [class.is-invalid]="reviewEmail.errors?.required">
+                <div class="invalid-feedback" *ngIf="reviewEmail.errors?.required">
+                  Required
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <textarea [(ngModel)]="newReview.note" 
+                            class="form-control" 
+                            placeholder="Note" 
+                            name="reviewNote" 
+                            #reviewNote="ngModel" 
+                            required
+                            [class.is-invalid]="reviewNote.errors?.required">
+                </textarea>
+                <div class="invalid-feedback" *ngIf="reviewNote.errors?.required">
+                  Required
+                </div>
+            </div>
+            <div class="form-group row mb-3">
+                <label class="col-12 mb-0 text-secondary">Star</label>
+                <rating [(ngModel)]="newReview.star" name="review" max="5" style="font-size: 32px;" class="col-12 text-warning mb-2 d-block"></rating>
+            </div>
+            <button class="btn btn-primary" type="submit" (click)="submitReview()" [disabled]="reviewBookForm?.invalid">Submit Review</button>
+        </form>
+    </div>
+</div>

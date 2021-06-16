@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="card-header">
+      Books
+      <button type="button" class="btn btn-primary btn-sm float-right" (click)="exportToJson()" [disabled]="!bookList.length">Export To JSON File</button>
+    </div>
+    <div class="card-body row">
+        <div class="p-3" [class.d-none]="bookList.length > 0">
+            <h6>No Books</h6>
+        </div>
+        <div class="col-3 mb-3" *ngFor="let item of bookList; let i = index">
+            <div class="card rounded" [ngClass]="{ 'border-primary shadow-lg' : activeIndex == i }" style="cursor: pointer;" (click)="selectedIndex(i)">
+                <div class="d-flex justify-content-center align-items-center overflow-auto" style="height: 100px;">
+                    <p class="text-center" [ngClass]="activeIndex == i ? 'text-primary font-weight-bold':'text-secondary'">{{ item?.name }}</p>
+                </div>
+                <div class="card-body p-2 rounded-bottom" [ngClass]="activeIndex == i ? 'bg-primary':'bg-secondary'">
+                  <p class="card-text text-white text-center">{{ item?.year }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

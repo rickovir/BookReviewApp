@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="card-header">
+      {{ bookName }} Review
+    </div>
+    <div class="card-body">
+        <div class="mb-3" [class.d-none]="reviewList.length > 0">
+            <h6>No Reviews</h6>
+        </div>
+        <div class="mb-3" *ngFor="let item of reviewList; let i = index" [class.border-bottom]="i < reviewList.length-1">
+            <h6>{{item.email}}</h6>
+            <p class="text-secondary mb-0"><small>{{ item.note }}</small></p>
+            <rating [(ngModel)]="item.star" max="5" readonly="true" style="font-size: 20px;" class="text-warning mb-2 d-block"></rating>
+        </div>
+    </div>
+</div>

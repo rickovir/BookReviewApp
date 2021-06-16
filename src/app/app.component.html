@@ -1,0 +1,6 @@
+<div class="container mt-4">
+  <h1 class="mb-4 display-4">Book Review App</h1>
+  <new-book (onAddBook)="addBookHandler($event)" class="mb-3 d-block"></new-book>
+  <book-list [data]="books" (onSelectedIndex)="selectedIndexHandler($event)" [activeIndex]="selectedIndex" class="mb-3 d-block"></book-list>
+  <book-review *ngIf="books[selectedIndex]" [bookName]="books[selectedIndex].name" [data]="books[selectedIndex].reviews" class="mb-5 d-block"></book-review>
+</div>
